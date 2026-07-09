@@ -1,0 +1,28 @@
+SLEEP LOG DATE: {{.Date}}
+---
+DURATION: {{.Duration}}
+EFFICIENCY: {{.Efficiency}}
+START_TIME: {{.StartTime}}
+END_TIME: {{.EndTime}}
+MINUTES_AFTER_WAKEUP: {{.MinutesAfterWakeup}}
+MINUTES_AWAKE: {{.MinutesAwake}}
+MINUTES_ASLEEP: {{.MinutesAsleep}}
+MINUTES_TO_FALL_ASLEEP: {{.MinutesToFallAsleep}}
+TIME_IN_BED: {{.TimeInBed}}
+
+SLEEP STAGES:
+- DEEP: {{.Stages.Deep}}
+- LIGHT: {{.Stages.Light}}
+- REM: {{.Stages.Rem}}
+- WAKE: {{.Stages.Wake}}
+
+SLEEP STAGES DETAILS:
+{{range .StageDetails}}
+- NAME: {{.Name}}
+  START_TIME: {{.StartTime}}
+  END_TIME: {{.EndTime}}
+  DURATION_SECONDS: {{.DurationSeconds}}
+{{end}}
+FINAL DETAILS:
+{{range .History}}- {{.Date}}: {{.Duration}} duration, {{.Efficiency}}% efficiency
+{{end}}`
