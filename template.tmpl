@@ -1,28 +1,31 @@
-SLEEP LOG DATE: {{.Date}}
----
-DURATION: {{.Duration}}
-EFFICIENCY: {{.Efficiency}}
-START_TIME: {{.StartTime}}
-END_TIME: {{.EndTime}}
-MINUTES_AFTER_WAKEUP: {{.MinutesAfterWakeup}}
-MINUTES_AWAKE: {{.MinutesAwake}}
-MINUTES_ASLEEP: {{.MinutesAsleep}}
-MINUTES_TO_FALL_ASLEEP: {{.MinutesToFallAsleep}}
-TIME_IN_BED: {{.TimeInBed}}
+Sleep log for: {{.Date}}
 
-SLEEP STAGES:
+Duration: {{.Duration}}
+Efficiency: {{.Efficiency}}
+Start time: {{.StartTime}}
+End time: {{.EndTime}}
+Time after wakeup : {{.MinutesAfterWakeup}} (midly useless)
+Time awake during the night: {{.MinutesAwake}}
+Time sleeping during the night: {{.MinutesAsleep}}
+Time before the user fell asleep: {{.MinutesToFallAsleep}}
+Total time spent in bed: {{.TimeInBed}}
+
+Sleep stages:
 - DEEP: {{.Stages.Deep}}
 - LIGHT: {{.Stages.Light}}
 - REM: {{.Stages.Rem}}
 - WAKE: {{.Stages.Wake}}
 
-SLEEP STAGES DETAILS:
+Detailed and chronological breakdown of sleep stages:
 {{range .StageDetails}}
-- NAME: {{.Name}}
-  START_TIME: {{.StartTime}}
-  END_TIME: {{.EndTime}}
-  DURATION_SECONDS: {{.DurationSeconds}}
+- Name: {{.Name}} (AWAKE/LIGHT/DEEP/REM)
+  Start time: {{.StartTime}}
+  End time: {{.EndTime}}
+  Duration: {{.DurationSeconds}}
 {{end}}
-FINAL DETAILS:
-{{range .History}}- {{.Date}}: {{.Duration}} duration, {{.Efficiency}}% efficiency
+
+Historic sleep info (minimal sleep records for personalized insights):
+{{range .History}}- {{.Date}}: sleep lasted {{.Duration}} and was {{.Efficiency}}% efficient.
 {{end}}`
+
+---

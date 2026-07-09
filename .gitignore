@@ -1,0 +1,4 @@
+fitbit.json
+*.json
+data.db
+.env
