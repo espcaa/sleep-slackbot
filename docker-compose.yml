@@ -1,0 +1,8 @@
+services:
+  sleep-bot:
+    build: .
+    image: sleep-bot:latest
+    container_name: sleep-bot
+    env_file:
+      - .env
+    restart: unless-stopped
